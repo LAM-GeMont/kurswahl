@@ -13,7 +13,7 @@ db.connect();
 //
 //  Constants
 //
-const port = 80;
+const port = 3000;
 
 //
 //  MIDDLEWARE
@@ -46,7 +46,7 @@ const sessionOptions = {
     cookie: {
         maxAge: null,           // Cookie max Age in ms (null -> session cookie expires on closing the browser)
         sameSite: 'strict',     // Cookie Same Site restriction
-        secure: false          // Change in prod or testing with ssl (HTTPS required for true) may need app.set('trust proxy', 1);
+        secure: false           // Change in prod or testing with ssl (HTTPS required for true) may need app.set('trust proxy', 1);
     },
     name: 'gemont-session',     // name of the session cookie
     proxy: undefined,           // set to true for 'X-Forwarded-Proto' header (reverse proxy trust), set to false to require TLS/SSL conn to proxy
