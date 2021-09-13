@@ -2,9 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const WahloptionSchema = new Schema({
-  Name: String,
-  beschreibung: String,
-  hatPrioritaet: boolean,
+  ID: Number,
+  name: {type: String, required: true},
+  beschreibung: {type: String, required: true},
+  hatPrioritaet: {type: boolean, required: true},
   maxTeilnehmerAnzahl: number
 }, { versionKey: false });
 

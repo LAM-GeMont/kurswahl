@@ -2,10 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const SchuelerSchema = new Schema({
-  SchuelerNr: String,
+  ID: Number,
+  schuelerNr: { type: String, required: true, unique: true, index:true },
   vorname: String,
   nachname: String,
-  klassenstufe: number
+  klassenstufe: { type: String, required: true}
 }, { versionKey: false });
 
 const Schueler = mongoose.model('schueler', SchuelerSchema,'schueler');
