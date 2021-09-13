@@ -2,13 +2,18 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const TeilnahmeSchema = new Schema({
-  schuelerNr: String,
-  wahlId: String,
-  Wuensche: [{
-      wahloptionName: String,
-      prioritaet: number
+  ID: Number,
+  schuelerNr: { type: mongoose.Types.ObjectId, required: true},
+  wahlId: { type: mongoose.Types.ObjectId, required: true},
+  wuensche: [{
+      wahloption: {type: mongoose.Types.ObjectId, required: true},
+      prioritaet: {type: mongoose.Types.ObjectId, required: true}
   }],
-  ergebnisName: String
+  ergebnisWahloption: { type:{
+      wahloption: {type: mongoose.Types.ObjectId, required: true},
+      name: {type: string}
+    }, index= true
+  }
 }, { versionKey: false });
 
 const Teilnahme = mongoose.model('teilnahme', TeilnahmeSchema,'teilnahme');
